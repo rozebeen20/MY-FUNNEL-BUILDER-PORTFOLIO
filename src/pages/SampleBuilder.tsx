@@ -7,11 +7,11 @@ import { useStore } from '../lib/store'
 const SHIPPING_FLAT = 18
 
 const STAGES = [
-  { id: 'Pre-Sale', href: '/pre-sale', url: 'rbcat-funnel-builder / pre-sale' },
-  { id: 'Quiz Funnel', href: '/quiz', url: 'rbcat-funnel-builder / quiz' },
-  { id: 'PDP', href: '/product', url: 'rbcat-funnel-builder / product' },
-  { id: 'CRO Redesign', href: '/case-study', url: 'rbcat-funnel-builder / case-study' },
-  { id: 'Checkout', href: '/checkout', url: 'rbcat-funnel-builder / checkout' },
+  { id: 'Pre-Sale', href: '/pre-sale' },
+  { id: 'Quiz Funnel', href: '/quiz' },
+  { id: 'PDP', href: '/product' },
+  { id: 'CRO Redesign', href: '/case-study' },
+  { id: 'Checkout', href: '/checkout' },
 ]
 
 const ATMOSPHERE = QUIZ_QUESTIONS[2]
@@ -43,7 +43,7 @@ function PreSalePreview({
   product: (typeof PRODUCTS)[number]
 }) {
   return (
-    <PreviewFrame url={STAGES[0].url}>
+    <PreviewFrame label={STAGES[0].id}>
       <div className="relative h-64 overflow-hidden lg:h-80">
         <img
           src="/assets/hero-Dt2locjs.jpg"
@@ -89,7 +89,7 @@ function QuizPreview({
 }) {
   const [selected, setSelected] = useState<string | null>(null)
   return (
-    <PreviewFrame url={STAGES[1].url}>
+    <PreviewFrame label={STAGES[1].id}>
       <div className="p-5">
         <div className="flex items-center gap-2">
           {['Location', 'Style', 'Atmosphere', 'Look'].map((label, i) => (
@@ -177,7 +177,7 @@ function PdpPreview({
   onAdd: () => void
 }) {
   return (
-    <PreviewFrame url={`${STAGES[2].url} / ${product.slug}`}>
+    <PreviewFrame label={`${STAGES[2].id} · ${product.name}`}>
       <div className="grid grid-cols-[1fr_1.2fr] gap-5 p-5">
         <div className="relative h-48 overflow-hidden border border-border lg:h-56">
           <img
@@ -234,7 +234,7 @@ function PdpPreview({
 
 function CroPreview() {
   return (
-    <PreviewFrame url={STAGES[3].url}>
+    <PreviewFrame label={STAGES[3].id}>
       <div className="grid grid-cols-2 divide-x divide-border">
         <div className="p-5">
           <p className="label-xs text-cream">Before</p>
@@ -279,7 +279,7 @@ function CheckoutPreview({
 }) {
   const total = product.price + SHIPPING_FLAT
   return (
-    <PreviewFrame url={STAGES[4].url}>
+    <PreviewFrame label={STAGES[4].id}>
       <div className="grid gap-5 p-5 sm:grid-cols-2">
         <div className="min-w-0">
           <p className="text-[9px] uppercase tracking-[0.2em] text-gold">Contact</p>

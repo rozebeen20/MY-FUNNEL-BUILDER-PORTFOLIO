@@ -42,7 +42,6 @@ const SHOWCASE = [
     title: 'Pre-Sale Page',
     label: 'Turn attention into intent',
     caption: 'Focused promise before product selection.',
-    url: 'rbcat-funnel-builder / pre-sale',
     explore: '/pre-sale',
     exploreLabel: 'Explore Experience →',
   },
@@ -51,7 +50,6 @@ const SHOWCASE = [
     title: 'Quiz Funnel',
     label: 'Guide to a personalized match',
     caption: 'Image-led discovery reduces the cognitive load of product selection.',
-    url: 'rbcat-funnel-builder / quiz',
     explore: '/quiz',
     exploreLabel: 'Take The Quiz →',
   },
@@ -60,7 +58,6 @@ const SHOWCASE = [
     title: 'Product Detail Page',
     label: 'Proof → Value → Price → CTA → Trust',
     caption: 'Hierarchy designed to answer the buyer’s questions in sequence.',
-    url: 'rbcat-funnel-builder / product',
     explore: '/product/signature-gold-table-lamp',
     exploreLabel: 'View Product →',
   },
@@ -69,7 +66,6 @@ const SHOWCASE = [
     title: 'Checkout',
     label: 'Clear action, low friction',
     caption: 'A clean path — with honest portfolio demo messaging.',
-    url: 'rbcat-funnel-builder / checkout',
     explore: '/checkout',
     exploreLabel: 'Explore Experience →',
   },
@@ -242,7 +238,7 @@ export default function CaseStudy() {
               </div>
               <div className="p-6">
                 <p className="label-xs mb-5 text-cream">{SHOWCASE[0].label}</p>
-                <PreviewFrame url={SHOWCASE[0].url}>
+                <PreviewFrame label={SHOWCASE[0].title}>
                   <div className="relative h-56 overflow-hidden">
                     <img
                       src="/assets/hero-Dt2locjs.jpg"
@@ -288,7 +284,7 @@ export default function CaseStudy() {
               </div>
               <div className="p-6">
                 <p className="label-xs mb-5 text-cream">{SHOWCASE[1].label}</p>
-                <PreviewFrame url={SHOWCASE[1].url}>
+                <PreviewFrame label={SHOWCASE[1].title}>
                   <div className="px-5 py-5">
                     <div className="flex items-center gap-2">
                       {['Location', 'Style', 'Atmosphere', 'Look'].map((label, i) => (
@@ -360,7 +356,7 @@ export default function CaseStudy() {
               </div>
               <div className="p-6">
                 <p className="label-xs mb-5 text-cream">{SHOWCASE[2].label}</p>
-                <PreviewFrame url={SHOWCASE[2].url}>
+                <PreviewFrame label={SHOWCASE[2].title}>
                   <div className="grid grid-cols-[1fr_1.15fr] gap-4 p-5">
                     <div className="relative h-44 overflow-hidden border border-border">
                       <img
@@ -412,7 +408,7 @@ export default function CaseStudy() {
               </div>
               <div className="p-6">
                 <p className="label-xs mb-5 text-cream">{SHOWCASE[3].label}</p>
-                <PreviewFrame url={SHOWCASE[3].url}>
+                <PreviewFrame label={SHOWCASE[3].title}>
                   <div className="grid grid-cols-2 gap-4 p-5">
                     <div className="min-w-0">
                       <p className="text-[9px] uppercase tracking-[0.2em] text-gold">
