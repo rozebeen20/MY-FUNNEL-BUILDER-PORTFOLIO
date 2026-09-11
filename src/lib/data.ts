@@ -181,15 +181,50 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
 export type Answers = Record<string, string>
 
+const RECOMMENDATION_RULES: { slug: string; match: Record<string, string[]> }[] = [
+  {
+    slug: 'noir-arc-floor-lamp',
+    match: {
+      location: ['Living Room', 'Home Office'],
+      style: ['Luxury / Glamorous', 'Contemporary'],
+      atmosphere: ['Dramatic & Statement-Making'],
+      look: ['Bold', 'Showstopping'],
+    },
+  },
+  {
+    slug: 'luna-glass-pendant',
+    match: {
+      location: ['Dining Room', 'Entryway'],
+      style: ['Classic', 'Contemporary'],
+      atmosphere: ['Elegant & Sophisticated', 'Bright & Energizing'],
+      look: ['Balanced'],
+    },
+  },
+  {
+    slug: 'signature-gold-table-lamp',
+    match: {
+      location: ['Living Room', 'Bedroom'],
+      style: ['Modern', 'Minimalist', 'Classic'],
+      atmosphere: ['Warm & Cozy', 'Elegant & Sophisticated'],
+      look: ['Subtle', 'Balanced'],
+    },
+  },
+]
+
 export function recommendMatch(answers: Answers): Product {
-  const style = answers['style']
-  const atmosphere = answers['atmosphere']
-  const look = answers['look']
-  const bold =
-    style === 'Luxury / Glamorous' ||
-    atmosphere === 'Dramatic & Statement-Making' ||
-    look === 'Showstopping'
-  return getProduct(bold ? 'noir-arc-floor-lamp' : 'signature-gold-table-lamp')!
+  let bestScore = -1
+  let bestSlug = RECOMMENDATION_RULES[0].slug
+  for (const rule of RECOMMENDATION_RULES) {
+    let score = 0
+    for (const [key, values] of Object.entries(rule.match)) {
+      if (values.includes(answers[key])) score += 1
+    }
+    if (score > bestScore) {
+      bestScore = score
+      bestSlug = rule.slug
+    }
+  }
+  return getProduct(bestSlug)!
 }
 
 export const NAV_ITEMS = [
